@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Mobile.CarouselContent"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <StackLayout>
+            <Frame
+                Margin="20"
+                BorderColor="DarkGray"
+                CornerRadius="5"
+                HasShadow="True"
+                HeightRequest="300"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalOptions="Center"
+                        Text="{Binding Name}"
+                        VerticalOptions="Center" />
+                    <Image
+                        Aspect="AspectFill"
+                        HeightRequest="150"
+                        HorizontalOptions="Center"
+                        Source="{Binding ImageUrl}"
+                        WidthRequest="150" />
+                    <Entry
+                        x:Name="EntryMoneky"
+                        HorizontalOptions="Center"
+                        Text="{Binding Location}" />
+                    <Label
+                        FontAttributes="Italic"
+                        HorizontalOptions="Center"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="5"
+                        Text="{Binding Details}" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
