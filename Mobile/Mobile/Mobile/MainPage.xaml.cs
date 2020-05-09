@@ -32,8 +32,25 @@ namespace Mobile
             }
         }
 
+        private void CarouselViewMonkeys_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
+        {
+            if (CarouselViewMonkeys.CurrentItem is Monkey item)
+            {
+                item.Focused = true;
 
+                (CarouselViewMonkeys.ItemsSource as List<Monkey>)
+               ?.ForEach((monkey) =>
+               {
+                   if (monkey.Id != item.Id)
+                       monkey.Focused = false;
+               });
+            }
+
+
+
+
+        }
     }
 
-    
+
 }

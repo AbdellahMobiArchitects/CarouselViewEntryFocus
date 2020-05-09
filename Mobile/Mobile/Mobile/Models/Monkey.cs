@@ -12,7 +12,7 @@ namespace Mobile.Models
         public string Location { get; set; }
         public string Details { get; set; }
         public string ImageUrl { get; set; }
-
+        public bool Focused { get; set; }
 
         public static List<Monkey> GetMonkeys()
         {

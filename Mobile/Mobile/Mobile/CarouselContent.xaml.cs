@@ -1,6 +1,7 @@
 ﻿using Mobile.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,12 @@ namespace Mobile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CarouselContent : ContentView
     {
+        private Monkey model;
         public CarouselContent()
         {
             InitializeComponent();
         }
 
-        private Monkey model;
         protected override void OnBindingContextChanged()
         {
             base.OnBindingContextChanged();
@@ -32,10 +33,18 @@ namespace Mobile
                 model.PropertyChanged += OnModelPropertyChanged;
         }
 
-        private void OnModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private async void OnModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(Monkey.Id))
-                EntryMoneky.Focus();
+            switch (e.PropertyName)
+            {
+                case nameof(Monkey.Focused):
+                    //TODO: wait for animation to end then set entry focus
+                    if (model.Focused)
+                        EntryMoneky.Focus();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

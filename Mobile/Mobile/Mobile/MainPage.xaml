@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <StackLayout>
-        <CarouselView x:Name="CarouselViewMonkeys">
+        <CarouselView x:Name="CarouselViewMonkeys" CurrentItemChanged="CarouselViewMonkeys_CurrentItemChanged">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <mobile:CarouselContent />

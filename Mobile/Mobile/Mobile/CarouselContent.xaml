@@ -31,7 +31,7 @@
                         WidthRequest="150" />
                     <Entry
                         x:Name="EntryMoneky"
-                        HorizontalOptions="Center"
+                        HorizontalOptions="Fill"
                         Text="{Binding Location}" />
                     <Label
                         FontAttributes="Italic"
